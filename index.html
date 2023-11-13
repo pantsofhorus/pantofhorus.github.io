@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pants of Horus Guild Cluster</title>
+  <style>
+    /* Add your CSS styles here */
+  </style>
+</head>
+<body>
+  <h1>Pants of Horus Guild Cluster</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Guild</th>
+        <th>Ranking</th>
+        <th>Members</th>
+        <th>Cap</th>
+        <th>Level Requirement</th>
+        <th>Recruiting</th>
+        <th>Logo</th>
+      </tr>
+    </thead>
+    <tbody id="guildTableBody">
+      <!-- Data will be dynamically populated here -->
+    </tbody>
+  </table>
+  <script>
+    // Your guild data directly included in the HTML
+    const guildData = {
+      "guilds": [
+        {
+          "name": "Thunder Warriors",
+          "ranking": "Top 12",
+          "members": 30,
+          "cap": 30,
+          "level_requirement": 45,
+          "recruiting": false,
+          "logo": "https://static.wikia.nocookie.net/warhammer40k/images/f/f9/Raptor_Imperialis_Icon.png/revision/latest?cb=20150526214513"
+        },
+        {
+          "name": "Word Bearers",
+          "ranking": "Top 17",
+          "members": 30,
+          "cap": 30,
+          "level_requirement": 45,
+          "recruiting": false,
+          "logo": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjr3NwcA74xwDBVwEGhoDbZT-tkaJfMel3px7th2XZEEm8IlID4MCi8L5BDxDU6uiaZ2dc5E-alCnf6nRHBiIejyAbT7MWPwm2lmSfv5APe7NbwTfIuVkwWSs1RWJ06qDVEMvxpxmcLghKznFp1Wc6SH1CtpRgKKE8ie9FdLw29cEG3mXlmLBrOMr9-/w400-h400/chaos%20word%20bearerss%20plain%20solid%20bg.jpg"
+        },
+        {
+          "name": "Salamanders",
+          "ranking": "Top 18",
+          "members": 30,
+          "cap": 30,
+          "level_requirement": 46,
+          "recruiting": false,
+          "logo": "https://d1w82usnq70pt2.cloudfront.net/wp-content/uploads/2022/03/gh-salamanders-icon-e1646502293159.png"
+        },
+        {
+          "name": "Luna Wolves",
+          "ranking": "Top 19",
+          "members": 30,
+          "cap": 30,
+          "level_requirement": 48,
+          "recruiting": false,
+          "logo": "https://static.wikia.nocookie.net/warhammer40k/images/2/24/LW_Shoulder_Pad.jpg/revision/latest?cb=20150106020019"
+        },
+        {
+          "name": "Space Wolves",
+          "ranking": "Top 50",
+          "members": 17,
+          "cap": 25,
+          "level_requirement": 30,
+          "recruiting": true,
+          "logo": "https://d1w82usnq70pt2.cloudfront.net/wp-content/uploads/2022/03/gh-space-wolves-icon.png"
+        }
+      ]
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const tbody = document.getElementById('guildTableBody');
+
+      guildData.guilds.forEach(guild => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${guild.name}</td>
+          <td>${guild.ranking}</td>
+          <td>${guild.members}</td>
+          <td>${guild.cap}</td>
+          <td>${guild.level_requirement}</td>
+          <td>${guild.recruiting ? 'Yes' : 'No'}</td>
+          <td><img src="${guild.logo}" alt="${guild.name} Logo" height="50"></td>
+        `;
+
+        tbody.appendChild(row);
+      });
+    });
+  </script>
+</body>
+</html>
