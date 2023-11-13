@@ -1,1 +1,1 @@
-# pantofhorus.github.io
+# pantsofhorus.github.io
