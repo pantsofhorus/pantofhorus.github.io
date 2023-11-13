@@ -14,6 +14,10 @@
       text-align: center;
     }
 
+    h2 {
+      white-space: nowrap;
+    }
+
     .guild-container {
       display: flex;
       flex-wrap: wrap;
@@ -30,7 +34,23 @@
 
     .guild-logo {
       max-width: 100%;
+      max-height: 80px;
       height: auto;
+    }
+
+    .discord-button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #7289da;
+      color: #fff;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      max-width: 300px;
+      text-align: center;
     }
   </style>
 </head>
@@ -39,13 +59,14 @@
   <div class="guild-container" id="guildContainer">
     <!-- Guilds dynamically populated here -->
   </div>
+  <a href="https://discord.gg/pantsofhorus" target="_blank" class="discord-button">Join PoH Discord</a>
   <script>
     // Your guild data directly included in the HTML
     const guildData = {
       "guilds": [
         {
           "name": "Thunder Warriors",
-          "ranking": "Top 12",
+          "ranking": "12",
           "members": 30,
           "cap": 30,
           "level_requirement": 45,
@@ -54,7 +75,7 @@
         },
         {
           "name": "Word Bearers",
-          "ranking": "Top 17",
+          "ranking": "17",
           "members": 30,
           "cap": 30,
           "level_requirement": 45,
@@ -63,7 +84,7 @@
         },
         {
           "name": "Salamanders",
-          "ranking": "Top 18",
+          "ranking": "18",
           "members": 30,
           "cap": 30,
           "level_requirement": 46,
@@ -72,7 +93,7 @@
         },
         {
           "name": "Luna Wolves",
-          "ranking": "Top 19",
+          "ranking": "19",
           "members": 30,
           "cap": 30,
           "level_requirement": 48,
@@ -81,7 +102,7 @@
         },
         {
           "name": "Space Wolves",
-          "ranking": "Top 50",
+          "ranking": "50",
           "members": 17,
           "cap": 25,
           "level_requirement": 30,
@@ -99,12 +120,9 @@
         guildItem.className = 'guild-item';
         guildItem.innerHTML = `
           <h2>${guild.name}</h2>
-          <p>Ranking: ${guild.ranking}</p>
-          <p>Members: ${guild.members}</p>
-          <p>Cap: ${guild.cap}</p>
-          <p>Level Requirement: ${guild.level_requirement}</p>
-          <p>Recruiting: ${guild.recruiting ? 'Yes' : 'No'}</p>
+          <p>TOP ${guild.ranking} (L-${guild.level_requirement})</p>
           <img class="guild-logo" src="${guild.logo}" alt="${guild.name} Logo">
+          <p>Recruiting: ${guild.recruiting ? 'Yes' : 'No'}</p>
         `;
 
         guildContainer.appendChild(guildItem);
