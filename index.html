@@ -122,7 +122,7 @@
           <h2>${guild.name}</h2>
           <p>TOP ${guild.ranking} (L-${guild.level_requirement})</p>
           <img class="guild-logo" src="${guild.logo}" alt="${guild.name} Logo">
-          <p>Recruiting: ${guild.recruiting ? 'Yes' : 'No'}</p>
+          <p>${guild.recruiting ? 'Recruiting' : ''}</p>
         `;
 
         guildContainer.appendChild(guildItem);
