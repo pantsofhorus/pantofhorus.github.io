@@ -6,26 +6,39 @@
   <title>Pants of Horus Guild Cluster</title>
   <style>
     /* Add your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .guild-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .guild-item {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin: 10px;
+      text-align: center;
+      width: 200px;
+    }
+
+    .guild-logo {
+      max-width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 <body>
   <h1>Pants of Horus Guild Cluster</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Guild</th>
-        <th>Ranking</th>
-        <th>Members</th>
-        <th>Cap</th>
-        <th>Level Requirement</th>
-        <th>Recruiting</th>
-        <th>Logo</th>
-      </tr>
-    </thead>
-    <tbody id="guildTableBody">
-      <!-- Data will be dynamically populated here -->
-    </tbody>
-  </table>
+  <div class="guild-container" id="guildContainer">
+    <!-- Guilds dynamically populated here -->
+  </div>
   <script>
     // Your guild data directly included in the HTML
     const guildData = {
@@ -79,21 +92,22 @@
     };
 
     document.addEventListener('DOMContentLoaded', () => {
-      const tbody = document.getElementById('guildTableBody');
+      const guildContainer = document.getElementById('guildContainer');
 
       guildData.guilds.forEach(guild => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-          <td>${guild.name}</td>
-          <td>${guild.ranking}</td>
-          <td>${guild.members}</td>
-          <td>${guild.cap}</td>
-          <td>${guild.level_requirement}</td>
-          <td>${guild.recruiting ? 'Yes' : 'No'}</td>
-          <td><img src="${guild.logo}" alt="${guild.name} Logo" height="50"></td>
+        const guildItem = document.createElement('div');
+        guildItem.className = 'guild-item';
+        guildItem.innerHTML = `
+          <h2>${guild.name}</h2>
+          <p>Ranking: ${guild.ranking}</p>
+          <p>Members: ${guild.members}</p>
+          <p>Cap: ${guild.cap}</p>
+          <p>Level Requirement: ${guild.level_requirement}</p>
+          <p>Recruiting: ${guild.recruiting ? 'Yes' : 'No'}</p>
+          <img class="guild-logo" src="${guild.logo}" alt="${guild.name} Logo">
         `;
 
-        tbody.appendChild(row);
+        guildContainer.appendChild(guildItem);
       });
     });
   </script>
