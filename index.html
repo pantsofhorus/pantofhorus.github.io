@@ -71,7 +71,7 @@
       "guilds": [
         {
           "name": "Thunder Warriors",
-          "ranking": "12",
+          "ranking": 12,
           "members": 30,
           "cap": 30,
           "level_requirement": 45,
@@ -80,7 +80,7 @@
         },
         {
           "name": "Word Bearers",
-          "ranking": "17",
+          "ranking": 17,
           "members": 30,
           "cap": 30,
           "level_requirement": 45,
@@ -89,7 +89,7 @@
         },
         {
           "name": "Salamanders",
-          "ranking": "18",
+          "ranking": 18,
           "members": 30,
           "cap": 30,
           "level_requirement": 46,
@@ -98,7 +98,7 @@
         },
         {
           "name": "Luna Wolves",
-          "ranking": "19",
+          "ranking": 19,
           "members": 30,
           "cap": 30,
           "level_requirement": 48,
@@ -106,8 +106,107 @@
           "logo": "https://static.wikia.nocookie.net/warhammer40k/images/2/24/LW_Shoulder_Pad.jpg/revision/latest?cb=20150106020019"
         },
         {
+          "name": "Ultramarines",
+          "ranking": 68,
+          "members": 29,
+          "cap": 30,
+          "level_requirement": 40,
+          "recruiting": false,
+          "logo": "https://1000logos.net/wp-content/uploads/2020/09/Warhammer-logo-500x346.jpg"
+        },
+        {
+          "name": "Blood Angels",
+          "ranking": 42,
+          "members": 29,
+          "cap": 30,
+          "level_requirement": 43,
+          "recruiting": false,
+          "logo": "https://1000logos.net/wp-content/uploads/2020/09/Warhammer-logo-500x346.jpg"
+        },
+        {
+          "name": "Alpha Legion",
+          "ranking": 174,
+          "members": 22,
+          "cap": 30,
+          "level_requirement": 39,
+          "recruiting": false,
+          "logo": "https://1000logos.net/wp-content/uploads/2020/09/Warhammer-logo-500x346.jpg"
+        },
+        {
+          "name": "Iron Hands",
+          "ranking": 89,
+          "members": 29,
+          "cap": 30,
+          "level_requirement": 45,
+          "recruiting": false,
+          "logo": "https://1000logos.net/wp-content/uploads/2020/09/Warhammer-logo-500x346.jpg"
+        },
+        {
+          "name": "Imperial Fists",
+          "ranking": 73,
+          "members": 29,
+          "cap": 30,
+          "level_requirement": 40,
+          "recruiting": false,
+          "logo": "https://1000logos.net/wp-content/uploads/2020/09/Warhammer-logo-500x346.jpg"
+        },
+        {
+          "name": "Death Guard",
+          "ranking": 100,
+          "members": 28,
+          "cap": 30,
+          "level_requirement": 35,
+          "recruiting": false,
+          "logo": "https://1000logos.net/wp-content/uploads/2020/09/Warhammer-logo-500x346.jpg"
+        },
+        {
+          "name": "Space Sharks",
+          "ranking": 1116,
+          "members": 24,
+          "cap": 28,
+          "level_requirement": 16,
+          "recruiting": true,
+          "logo": "https://1000logos.net/wp-content/uploads/2020/09/Warhammer-logo-500x346.jpg"
+        },
+        {
+          "name": "Emporer's Children",
+          "ranking": 78,
+          "members": 30,
+          "cap": 30,
+          "level_requirement": 40,
+          "recruiting": false,
+          "logo": "https://1000logos.net/wp-content/uploads/2020/09/Warhammer-logo-500x346.jpg"
+        },
+        {
+          "name": "White Scars",
+          "ranking": 48,
+          "members": 30,
+          "cap": 30,
+          "level_requirement": 42,
+          "recruiting": false,
+          "logo": "https://1000logos.net/wp-content/uploads/2020/09/Warhammer-logo-500x346.jpg"
+        },
+        {
+          "name": "Night Lords",
+          "ranking": 57,
+          "members": 30,
+          "cap": 30,
+          "level_requirement": 48,
+          "recruiting": false,
+          "logo": "https://1000logos.net/wp-content/uploads/2020/09/Warhammer-logo-500x346.jpg"
+        },
+        {
+          "name": "Grey Knights",
+          "ranking": 176,
+          "members": 30,
+          "cap": 30,
+          "level_requirement": 40,
+          "recruiting": false,
+          "logo": "https://1000logos.net/wp-content/uploads/2020/09/Warhammer-logo-500x346.jpg"
+        },
+        {
           "name": "Space Wolves",
-          "ranking": "50",
+          "ranking": 150,
           "members": 17,
           "cap": 25,
           "level_requirement": 30,
@@ -120,6 +219,10 @@
     document.addEventListener('DOMContentLoaded', () => {
       const guildContainer = document.getElementById('guildContainer');
 
+      // Sort guilds by ranking
+      guildData.guilds.sort((a, b) => a.ranking - b.ranking);
+
+      // Iterate
       guildData.guilds.forEach(guild => {
         const guildItem = document.createElement('div');
         guildItem.className = 'guild-item';
