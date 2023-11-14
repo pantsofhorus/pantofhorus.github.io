@@ -1,0 +1,150 @@
+{
+    "guilds": [
+      {
+        "name": "Thunder Warriors",
+        "ranking": 12,
+        "members": 30,
+        "cap": 30,
+        "level_requirement": 45,
+        "recruiting": false,
+        "logo": "https://static.wikia.nocookie.net/warhammer40k/images/f/f9/Raptor_Imperialis_Icon.png"
+      },
+      {
+        "name": "Word Bearers",
+        "ranking": 17,
+        "members": 30,
+        "cap": 30,
+        "level_requirement": 45,
+        "recruiting": false,
+        "logo": "https://d1w82usnq70pt2.cloudfront.net/wp-content/uploads/2022/08/gh-word-bearers-icon.png"
+      },
+      {
+        "name": "Salamanders",
+        "ranking": 18,
+        "members": 30,
+        "cap": 30,
+        "level_requirement": 46,
+        "recruiting": false,
+        "logo": "https://d1w82usnq70pt2.cloudfront.net/wp-content/uploads/2022/03/gh-salamanders-icon-e1646502293159.png"
+      },
+      {
+        "name": "Luna Wolves",
+        "ranking": 19,
+        "members": 30,
+        "cap": 30,
+        "level_requirement": 48,
+        "recruiting": false,
+        "logo": "emblems/lw.png"
+      },
+      {
+        "name": "Ultramarines",
+        "ranking": 68,
+        "members": 29,
+        "cap": 30,
+        "level_requirement": 40,
+        "recruiting": false,
+        "logo": "https://d1w82usnq70pt2.cloudfront.net/wp-content/uploads/2022/03/gh-ultramarines-icon.png"
+      },
+      {
+        "name": "Blood Angels",
+        "ranking": 42,
+        "members": 29,
+        "cap": 30,
+        "level_requirement": 43,
+        "recruiting": false,
+        "logo": "https://d1w82usnq70pt2.cloudfront.net/wp-content/uploads/2022/03/gh-blood-angels-icon.png"
+      },
+      {
+        "name": "Alpha Legion",
+        "ranking": 174,
+        "members": 22,
+        "cap": 30,
+        "level_requirement": 39,
+        "recruiting": true,
+        "logo": "https://d1w82usnq70pt2.cloudfront.net/wp-content/uploads/2022/09/gh-alpha-legion-icon.png"
+      },
+      {
+        "name": "Iron Hands",
+        "ranking": 89,
+        "members": 29,
+        "cap": 30,
+        "level_requirement": 45,
+        "recruiting": false,
+        "logo": "https://d1w82usnq70pt2.cloudfront.net/wp-content/uploads/2022/03/gh-iron-hands-icon.png"
+      },
+      {
+        "name": "Imperial Fists",
+        "ranking": 73,
+        "members": 29,
+        "cap": 30,
+        "level_requirement": 40,
+        "recruiting": false,
+        "logo": "https://d1w82usnq70pt2.cloudfront.net/wp-content/uploads/2022/03/gh-imperial-fists-icon.png"
+      },
+      {
+        "name": "Death Guard",
+        "ranking": 100,
+        "members": 28,
+        "cap": 30,
+        "level_requirement": 35,
+        "recruiting": true,
+        "logo": "https://wh40k.lexicanum.com/mediawiki/images/thumb/9/97/Deathguardsymbol.png/200px-Deathguardsymbol.png"
+      },
+      {
+        "name": "Space Sharks",
+        "ranking": 1116,
+        "members": 24,
+        "cap": 28,
+        "level_requirement": 16,
+        "recruiting": true,
+        "logo": "emblems/ss.png"
+      },
+      {
+        "name": "Emperor's Children",
+        "ranking": 78,
+        "members": 30,
+        "cap": 30,
+        "level_requirement": 40,
+        "recruiting": true,
+        "logo": "https://wh40k.lexicanum.com/mediawiki/images/thumb/2/22/Emperorschildren.png/200px-Emperorschildren.png"
+      },
+      {
+        "name": "White Scars",
+        "ranking": 48,
+        "members": 30,
+        "cap": 30,
+        "level_requirement": 42,
+        "recruiting": false,
+        "logo": "https://d1w82usnq70pt2.cloudfront.net/wp-content/uploads/2022/03/gh-white-scars-icon.png"
+      },
+      {
+        "name": "Night Lords",
+        "ranking": 57,
+        "members": 30,
+        "cap": 30,
+        "level_requirement": 48,
+        "recruiting": false,
+        "logo": "https://d1w82usnq70pt2.cloudfront.net/wp-content/uploads/2022/09/gh-night-lords-icon-300x300.png"
+      },
+      {
+        "name": "Grey Knights",
+        "ranking": 176,
+        "members": 30,
+        "cap": 30,
+        "level_requirement": 40,
+        "recruiting": false,
+        "logo": "emblems/gk.png"
+      },
+      {
+        "name": "Space Wolves",
+        "ranking": 150,
+        "members": 17,
+        "cap": 25,
+        "level_requirement": 30,
+        "recruiting": true,
+        "logo": "https://d1w82usnq70pt2.cloudfront.net/wp-content/uploads/2022/03/gh-space-wolves-icon.png"
+      }
+      // Raven Guard
+      // Crimson Fists
+    ]
+  }

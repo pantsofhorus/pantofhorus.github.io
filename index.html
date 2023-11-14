@@ -4,60 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pants of Horus Guild Cluster</title>
-  <style>
-    /* Add your CSS styles here */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #2e2e2e; /* Dark background color */
-      color: #ffffff; /* Text color */
-    }
-
-    h1 {
-      text-align: center;
-      color: #d8d8d8; /* Title color */
-    }
-
-    h2 {
-      white-space: nowrap;
-    }
-
-    .guild-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .guild-item {
-      border: 1px solid #444444;
-      padding: 10px;
-      margin: 10px;
-      text-align: center;
-      width: 200px;
-      background-color: #333333; /* Guild item background color */
-      color: #ffffff; /* Guild item text color */
-    }
-
-    .guild-logo {
-      max-width: 100%;
-      max-height: 80px;
-      height: auto;
-    }
-
-    .discord-button {
-      display: block;
-      margin: 20px auto;
-      padding: 10px 20px;
-      background-color: #7289da;
-      color: #fff;
-      text-decoration: none;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      max-width: 300px;
-      text-align: center;
-    }
-  </style>
+  <link rel="stylesheet" href="global.css">
 </head>
 <body>
   <h1>Pants of Horus Guild Cluster</h1>
@@ -85,7 +32,7 @@
           "cap": 30,
           "level_requirement": 45,
           "recruiting": false,
-          "logo": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjr3NwcA74xwDBVwEGhoDbZT-tkaJfMel3px7th2XZEEm8IlID4MCi8L5BDxDU6uiaZ2dc5E-alCnf6nRHBiIejyAbT7MWPwm2lmSfv5APe7NbwTfIuVkwWSs1RWJ06qDVEMvxpxmcLghKznFp1Wc6SH1CtpRgKKE8ie9FdLw29cEG3mXlmLBrOMr9-/w400-h400/chaos%20word%20bearerss%20plain%20solid%20bg.jpg"
+          "logo": "https://d1w82usnq70pt2.cloudfront.net/wp-content/uploads/2022/08/gh-word-bearers-icon.png"
         },
         {
           "name": "Salamanders",
@@ -103,7 +50,7 @@
           "cap": 30,
           "level_requirement": 48,
           "recruiting": false,
-          "logo": "https://static.wikia.nocookie.net/warhammer40k/images/2/24/LW_Shoulder_Pad.jpg"
+          "logo": "emblems/lw.png"
         },
         {
           "name": "Ultramarines",
@@ -166,7 +113,7 @@
           "cap": 28,
           "level_requirement": 16,
           "recruiting": true,
-          "logo": "https://static.wikia.nocookie.net/warhammer40k/images/4/48/Carcharodons_Livery.jpg"
+          "logo": "emblems/ss.png"
         },
         {
           "name": "Emperor's Children",
@@ -174,7 +121,7 @@
           "members": 30,
           "cap": 30,
           "level_requirement": 40,
-          "recruiting": false,
+          "recruiting": true,
           "logo": "https://wh40k.lexicanum.com/mediawiki/images/thumb/2/22/Emperorschildren.png/200px-Emperorschildren.png"
         },
         {
@@ -202,7 +149,7 @@
           "cap": 30,
           "level_requirement": 40,
           "recruiting": false,
-          "logo": "https://www.belloflostsouls.net/wp-content/uploads/2019/12/grey-knight-logo.jpg"
+          "logo": "emblems/gk.png"
         },
         {
           "name": "Space Wolves",
@@ -229,10 +176,12 @@
         const guildItem = document.createElement('div');
         guildItem.className = 'guild-item';
         guildItem.innerHTML = `
-          <h2>${guild.name}</h2>
-          <p>TOP ${guild.ranking} (L-${guild.level_requirement})</p>
+          <div class="guild-title-wrapper">
+            <h2 class="guild-title">${guild.name}</h2>
+            <p class="guild-subtitle">TOP ${guild.ranking} (L-${guild.level_requirement})</p>
+          </div>
           <img class="guild-logo" src="${guild.logo}" alt="${guild.name} Logo">
-          <p>${guild.recruiting ? 'Recruiting' : ''}</p>
+          <p class="recruiting">${guild.recruiting ? 'Currently recruiting!' : ''}</p>
         `;
 
         guildContainer.appendChild(guildItem);
