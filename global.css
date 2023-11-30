@@ -35,7 +35,7 @@ h2 {
 .guild-container {
   display: grid;
   grid-template-columns: repeat(4, auto);
-  gap: 20px;
+  gap: 10px;
   justify-content: center;
   align-content: center;
   place-items: center;
