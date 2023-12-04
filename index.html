@@ -154,6 +154,44 @@
         }
       ]
     };
+    const apiUrl = 'https://ahrimanapi-1-k2332593.deta.app/DiscordOpenings/664611713311571983';
+    fetch(apiUrl, {
+      method: "GET", // *GET, POST, PUT, DELETE, etc.
+      mode: "cors", // no-cors, *cors, same-origin
+      credentials: "same-origin", // include, *same-origin, omit
+      headers: {
+      'Access-Control-Allow-Origin':'*'
+      }   
+     })
+      .then(response => {
+        console.log(response.json())
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log(data)
+                // Data is the parsed JSON response from the API
+        const guildData = { guilds: data.map(extractGuildFields) };
+        console.log(guildData);
+      })
+      .catch(error => {
+        console.error('Fetch error:', error);
+      });
+
+
+// Define a function to filter and extract specific fields
+function extractGuildFields(guild) {
+    return {
+        GuildName: guild.GuildName || "",
+        LastSeasonRanking: guild.LastSeasonRank || 0,
+        MaxMembers: guild.MaxMember || 0,
+        CurrentMembers: guild.CurrentMember || 0,
+        MinimumLevel: guild.MinimumLevel || 0,
+        ProjectedLosses: guild.ProjectedLoss || 0,
+    };
+}
 
     document.addEventListener('DOMContentLoaded', () => {
       const guildContainer = document.getElementById('guildContainer');
