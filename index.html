@@ -105,7 +105,7 @@
           "logo": "emblems/ss.png"
         },
         {
-          "name": "Emperor's Children",
+          "name": "Emperors Children",
           "ranking": 84,
           "members": 30,
           "cap": 30,
@@ -154,6 +154,9 @@
         }
       ]
     };
+
+    let apidata = [];
+
     const apiUrl = 'https://ahrimanapi-1-k2332593.deta.app/DiscordOpenings/664611713311571983';
     fetch(apiUrl, {
       method: "GET", // *GET, POST, PUT, DELETE, etc.
@@ -171,17 +174,15 @@
         return response.json();
       })
       .then(data => {
-        console.log(data)
-                // Data is the parsed JSON response from the API
-        const guildData = { guilds: data.map(extractGuildFields) };
-        console.log(guildData);
+        // Data is the parsed JSON response from the API
+        apidata = data.map(extractGuildFields);
       })
       .catch(error => {
         console.error('Fetch error:', error);
       });
 
 
-// Define a function to filter and extract specific fields
+  // Define a function to filter and extract specific fields
 function extractGuildFields(guild) {
     return {
         GuildName: guild.GuildName || "",
@@ -195,6 +196,26 @@ function extractGuildFields(guild) {
 
     document.addEventListener('DOMContentLoaded', () => {
       const guildContainer = document.getElementById('guildContainer');
+
+      // TODO, extract the images so we dont have to find them in above array. 
+
+      
+      // enable once cors is solved for the ahriman API Calls. 
+      // const guildData = apiData.map(extractGuildFields);
+      // guildData.sort((a,b) => a.LastSeasonRanking - b.LastSeasonRanking);
+      // guildData.forEach(guild => {
+      //   const guildItem = document.createElement('div');
+      //   guildItem.className = 'guild-item';
+      //   guildItem.innerHTML = `
+      //     <div class="guild-title-wrapper">
+      //       <h2 class="guild-title">${guild.GuildName}</h2>
+      //       <p class="guild-subtitle">TOP ${guild.LastSeasonRanking} (L-${guild.MinimumLevel})</p>
+      //     </div>
+      //     <img class="guild-logo" src="${guildData.guilds.find(({name}) => name === guild.GuildName)?.logo}" alt="${guild.GuildName} Logo">
+      //     <p class="recruiting">${(guild.CurrentMember < guild.MaxMembers) || guild.ProjectedLosses > 0 ? 'Currently recruiting!' : ''}</p>
+      //   `;
+      //   guildContainer.appendChild(guildItem);
+      // })
 
       // Sort guilds by ranking
       guildData.guilds.sort((a, b) => a.ranking - b.ranking);
