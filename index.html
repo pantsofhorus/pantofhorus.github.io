@@ -293,51 +293,56 @@
         "ProjectedLoss": 0
     }
 ];
-    
-
-    const apiUrl = 'https://ahrimanapi-1-k2332593.deta.app/DiscordOpenings/664611713311571983';
-    let apiData = await fetch(apiUrl, {
-      method: "GET", // *GET, POST, PUT, DELETE, etc.
-      mode: "cors", // no-cors, *cors, same-origin
+async function fetchData() {
+  try {
+    const response = await fetch(apiUrl, {
+      method: "GET",
+      mode: "cors",
       origin: "https://pantsofhorus.com",
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
       },
-     })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        return data;
-      })
-      .catch(error => {
-        console.error('Fetch error:', error);
-      });
+    });
 
-    document.addEventListener('DOMContentLoaded', () => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Fetch error:', error);
+    throw error; // Rethrow the error so that it can be caught by the caller if needed
+  }
+}
+
+   
+
+    document.addEventListener('DOMContentLoaded', async () => {
       const guildContainer = document.getElementById('guildContainer');
-      
-      console.log(apiData);
-      const guilds = apiData;
-      guilds.sort((a,b) => a.LastSeasonRanking - b.LastSeasonRanking);
-      guilds.forEach(guild => {
-        const guildItem = document.createElement('div');
-        guildItem.className = 'guild-item';
-        guildItem.innerHTML = `
-          <div class="guild-title-wrapper">
-            <h2 class="guild-title">${guild.GuildName}</h2>
-            <p class="guild-subtitle">TOP ${guild.LastSeasonRanking} (L-${guild.MinimumLevel})</p>
-          </div>
-          <img class="guild-logo" src="${guildData.guilds.find(({name}) => name === guild.GuildName)?.logo}" alt="${guild.GuildName} Logo">
-          <p class="recruiting">${(guild.CurrentMember < guild.MaxMembers) || guild.ProjectedLosses > 0 ? 'Currently recruiting!' : ''}</p>
-        `;
-        guildContainer.appendChild(guildItem);
-      })
-
+      try {
+        const apiData = await fetchData();
+        console.log(apiData);
+        console.log(apiData);
+        const guilds = apiData;
+        guilds.sort((a,b) => a.LastSeasonRanking - b.LastSeasonRanking);
+        guilds.forEach(guild => {
+          const guildItem = document.createElement('div');
+          guildItem.className = 'guild-item';
+          guildItem.innerHTML = `
+            <div class="guild-title-wrapper">
+              <h2 class="guild-title">${guild.GuildName}</h2>
+              <p class="guild-subtitle">TOP ${guild.LastSeasonRanking} (L-${guild.MinimumLevel})</p>
+            </div>
+            <img class="guild-logo" src="${guildData.guilds.find(({name}) => name === guild.GuildName)?.logo}" alt="${guild.GuildName} Logo">
+            <p class="recruiting">${(guild.CurrentMember < guild.MaxMembers) || guild.ProjectedLosses > 0 ? 'Currently recruiting!' : ''}</p>
+          `;
+          guildContainer.appendChild(guildItem);
+        })
+      } catch (error) {
+        console.error(error);
+      }
     });
   </script>
 </body>
