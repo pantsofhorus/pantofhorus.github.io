@@ -117,17 +117,15 @@
       const guildContainer = document.getElementById('guildContainer');
       try {
         const apiData = await fetchData();
-        console.log(apiData);
-        console.log(apiData);
-        const guilds = apiData;
-        guilds.sort((a,b) => a.LastSeasonRanking - b.LastSeasonRanking);
+        const guilds = JSON.parse(apiData);
+        guilds.sort((a,b) => a.LastSeasonRank - b.LastSeasonRank);
         guilds.forEach(guild => {
           const guildItem = document.createElement('div');
           guildItem.className = 'guild-item';
           guildItem.innerHTML = `
             <div class="guild-title-wrapper">
               <h2 class="guild-title">${guild.GuildName}</h2>
-              <p class="guild-subtitle">TOP ${guild.LastSeasonRanking} (L-${guild.MinimumLevel})</p>
+              <p class="guild-subtitle">TOP ${guild.LastSeasonRank} (L-${guild.MinimumLevel})</p>
             </div>
             <img class="guild-logo" src="${guildData.guilds.find(({name}) => name === guild.GuildName)?.logo}" alt="${guild.GuildName} Logo">
             <p class="recruiting">${(guild.CurrentMember < guild.MaxMembers) || guild.ProjectedLosses > 0 ? 'Currently recruiting!' : ''}</p>
