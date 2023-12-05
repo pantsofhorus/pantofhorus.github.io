@@ -293,10 +293,10 @@
         "ProjectedLoss": 0
     }
 ];
-    let apiData = [];
+    
 
     const apiUrl = 'https://ahrimanapi-1-k2332593.deta.app/DiscordOpenings/664611713311571983';
-    fetch(apiUrl, {
+    let apiData = await fetch(apiUrl, {
       method: "GET", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
       origin: "https://pantsofhorus.com",
@@ -312,27 +312,15 @@
         return response.json();
       })
       .then(data => {
-        apidata = data;
+        return data;
       })
       .catch(error => {
         console.error('Fetch error:', error);
       });
 
-    // function extractGuildFields(guild) {
-    //     return {
-    //         GuildName: guild.GuildName || "",
-    //         LastSeasonRanking: guild.LastSeasonRank || 0,
-    //         MaxMembers: guild.MaxMember || 0,
-    //         CurrentMembers: guild.CurrentMember || 0,
-    //         MinimumLevel: guild.MinimumLevel || 0,
-    //         ProjectedLosses: guild.ProjectedLoss || 0,
-    //     };
-    // }
-
     document.addEventListener('DOMContentLoaded', () => {
       const guildContainer = document.getElementById('guildContainer');
       
-      // const guilds = apiData.map(extractGuildFields);
       console.log(apiData);
       const guilds = apiData;
       guilds.sort((a,b) => a.LastSeasonRanking - b.LastSeasonRanking);
