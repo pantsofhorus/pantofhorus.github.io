@@ -293,7 +293,7 @@
         "ProjectedLoss": 0
     }
 ];
-    let apiData;
+    let apiData = [];
 
     const apiUrl = 'https://ahrimanapi-1-k2332593.deta.app/DiscordOpenings/664611713311571983';
     fetch(apiUrl, {
@@ -333,6 +333,7 @@
       const guildContainer = document.getElementById('guildContainer');
       
       // const guilds = apiData.map(extractGuildFields);
+      console.log(apiData);
       const guilds = apiData;
       guilds.sort((a,b) => a.LastSeasonRanking - b.LastSeasonRanking);
       guilds.forEach(guild => {
