@@ -128,7 +128,7 @@
               <p class="guild-subtitle">TOP ${guild.LastSeasonRank} (L-${guild.MinimumLevel})</p>
             </div>
             <img class="guild-logo" src="${guildData.guilds.find(({name}) => name === guild.GuildName)?.logo}" alt="${guild.GuildName} Logo">
-            <p class="recruiting">${guild.ProjectedLoss > 0 || guild.CurrentMember < guild.MaxMembers ? 'Currently recruiting!' : ''}</p>
+            <p class="recruiting">${(guild.ProjectedLoss == 1 || guild.CurrentMember < guild.MaxMembers) ? 'Currently recruiting!' : ''}</p>
           `;
           guildContainer.appendChild(guildItem);
         })
