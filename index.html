@@ -94,9 +94,11 @@
     fetch(apiUrl, {
       method: "GET", // *GET, POST, PUT, DELETE, etc.
       mode: "cors", // no-cors, *cors, same-origin
+      origin: "https://pantsofhorus.com",
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
+        "Origin": "https://pantsofhorus.com",
       },
      })
       .then(response => {
