@@ -98,17 +98,17 @@
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
-        "Origin": "https://pantsofhorus.com",
       },
      })
       .then(response => {
-        console.log(response.json())
+        console.log(response)
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         return response.json();
       })
       .then(data => {
+        console.log(data)
         // Data is the parsed JSON response from the API
         apidata = data.map(extractGuildFields);
       })
