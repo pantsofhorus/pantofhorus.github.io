@@ -9,6 +9,7 @@
 <body>
   <h1>Pants of Horus Guild Cluster</h1>
   <div class="guild-container" id="guildContainer">
+    <div id="loader" class="loader"></div>
     <!-- Guilds dynamically populated here -->
   </div>
   <a href="https://discord.gg/pantsofhorus" target="_blank" class="discord-button">Join PoH Discord</a>
@@ -115,8 +116,11 @@
 
     document.addEventListener('DOMContentLoaded', async () => {
       const guildContainer = document.getElementById('guildContainer');
+
       try {
         const apiData = await fetchData();
+        guildContainer.removeChild(document.getElementById('loader'));
+
         const guilds = JSON.parse(apiData);
         guilds.sort((a,b) => a.LastSeasonRank - b.LastSeasonRank);
         guilds.forEach(guild => {
