@@ -124,7 +124,7 @@
       try {
         const apiData = await fetchData();
         guildContainer.removeChild(document.getElementById('loader'));
-
+        console.log(apiData)
         const guilds = JSON.parse(apiData);
         guilds.sort((a,b) => a.LastSeasonRank - b.LastSeasonRank);
         guilds.forEach(guild => {
